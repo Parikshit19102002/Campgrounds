@@ -1,0 +1,39 @@
+<% layout('layout/boilerplate') %>
+
+<div id="map" style="width: 100%; height: 500px;"></div>
+
+    <h1 class="mb-5">All Campground</h1>
+      <% for(let campgrounds of campground){ %>
+         <div class="card mb-3" >
+           <div class="row">
+             <div class="col-md-4">
+               <% if(campgrounds.image.length){ %>
+               <img class="img-fluid" src="<%=campgrounds.image[0].url%>" alt="<%= campgrounds.title %>">
+               <% }else { %>
+                <img class="img-fluid" src='https://images.unsplash.com/photo-1482858683229-74280d78908b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHw0ODQzNTF8fHx8fHx8MTcwNDkwODE1Nw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080' alt="<%= campgrounds.title %>">
+                <% } %>
+             </div>
+
+            <div class="col-md-8">
+               <div>
+                  <h5 class="card-title"><%= campgrounds.title %></h5>
+               </div>
+               <p class="card-text">
+                 <small class="text-muted"><%= campgrounds.title %></small>
+               </p>
+
+               <a class="btn btn-primary" href="/campground/<%= campgrounds._id %>"><%= campgrounds.title %></a>
+               
+            </div>
+           </div>
+         </div>
+         
+      <% } %>
+     
+    <script>
+      const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+      const campground = {features : <%- JSON.stringify(campground) %>} 
+    </script>
+
+    <script src="javaScript/clusterMap.js"></script>
+

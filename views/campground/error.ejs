@@ -1,0 +1,33 @@
+<% layout('layout/boilerplate') %>
+
+<div class="alert alert-dager" role="alert">
+    <h4 class="alert-heading"><%= message %></h4>
+    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+    <hr>
+    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+  </div>
+
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+ (function () {
+   'use strict'
+ 
+   // Fetch all the forms we want to apply custom Bootstrap validation styles to
+   var forms = document.querySelectorAll('.needs-validation')
+ 
+   // Loop over them and prevent submission
+   Array.prototype.slice.call(forms)
+     .forEach(function (form) {
+       form.addEventListener('submit', function (event) {
+         if (!form.checkValidity()) {
+           event.preventDefault()
+           event.stopPropagation()
+         }
+ 
+         form.classList.add('was-validated')
+       }, false)
+     })
+ })()
+ </script>
+ 
